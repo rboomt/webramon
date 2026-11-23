@@ -1,1 +1,392 @@
-pagina web de ramon
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2">
+  <meta name="description" content="Perfil profesional: graduado en Finanzas, experiencia en compras en Siemens y futbolista de Tercera RFEF.">
+  <title>Perfil profesional | Finanzas, compras y fútbol</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17241f;
+      --muted: #64716b;
+      --green: #245c46;
+      --green-dark: #193f32;
+      --lime: #d6ef9e;
+      --paper: #f5f6f2;
+      --white: #fff;
+      --line: #e5e9e3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.78rem;
+      letter-spacing: 0;
+    }
+
+    .header-note {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    main {
+      padding: 28px 0 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      min-height: 370px;
+      grid-template-columns: 1.4fr 0.6fr;
+      align-items: center;
+      gap: 36px;
+      padding: 58px;
+      border-radius: 24px;
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -100px;
+      bottom: -180px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgb(255 255 255 / 12%);
+      border-radius: 50%;
+      content: "";
+      box-shadow: 0 0 0 45px rgb(255 255 255 / 4%), 0 0 0 90px rgb(255 255 255 / 3%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--lime);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 630px;
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 650;
+      letter-spacing: -0.065em;
+      line-height: 1.04;
+    }
+
+    .hero-copy {
+      max-width: 510px;
+      margin: 22px 0 0;
+      color: rgb(255 255 255 / 77%);
+      font-size: 1.05rem;
+    }
+
+    .hero-side {
+      position: relative;
+      z-index: 1;
+      justify-self: end;
+      width: 190px;
+      padding: 22px;
+      border: 1px solid rgb(255 255 255 / 18%);
+      border-radius: 18px;
+      background: rgb(255 255 255 / 6%);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-side-label {
+      display: block;
+      margin-bottom: 12px;
+      color: rgb(255 255 255 / 65%);
+      font-size: 0.75rem;
+    }
+
+    .hero-side strong {
+      display: block;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+    }
+
+    .section-label {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about-title {
+      margin: 0 0 12px;
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+      line-height: 1.25;
+    }
+
+    .about-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 23px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #f0f4ee;
+      color: var(--green-dark);
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .item-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 13px;
+      background: #eef4e9;
+      color: var(--green);
+      font-size: 1.1rem;
+    }
+
+    .item-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .item-subtitle {
+      margin: 3px 0 0;
+      color: var(--green);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .item-description {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0 30px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        width: min(100% - 32px, 540px);
+      }
+
+      header {
+        padding: 20px 0;
+      }
+
+      .header-note {
+        font-size: 0.75rem;
+      }
+
+      main {
+        padding-top: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 36px 28px;
+      }
+
+      .hero-side {
+        justify-self: start;
+        width: 100%;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .header-note {
+        max-width: 120px;
+        text-align: right;
+      }
+
+      .hero {
+        padding: 30px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">PF</span>
+        <span>Perfil profesional</span>
+      </div>
+      <span class="header-note">Finanzas · Compras · Deporte</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="profile-title">
+        <div>
+          <p class="eyebrow">Perfil profesional</p>
+          <h1 id="profile-title">Finanzas con mentalidad de equipo.</h1>
+          <p class="hero-copy">
+            Graduado en Finanzas por la Universidad de Alcalá, con experiencia en compras en Siemens
+            y compromiso dentro y fuera del campo como futbolista de Tercera RFEF.
+          </p>
+        </div>
+        <aside class="hero-side" aria-label="Resumen">
+          <span class="hero-side-label">Mi recorrido</span>
+          <strong>Universidad de Alcalá</strong>
+          <strong>Siemens</strong>
+          <strong>Tercera RFEF</strong>
+        </aside>
+      </section>
+
+      <div class="content-grid">
+        <section class="card" aria-labelledby="about-heading">
+          <p class="section-label">Sobre mí</p>
+          <h2 class="about-title" id="about-heading">Analítico, comprometido y orientado a objetivos.</h2>
+          <p class="about-copy">
+            Combino una formación financiera con experiencia práctica en el área de compras y la
+            disciplina que aporta competir en fútbol. Me motiva aprender, colaborar y afrontar nuevos retos.
+          </p>
+          <div class="tags" aria-label="Áreas de experiencia">
+            <span class="tag">Finanzas</span>
+            <span class="tag">Procurement</span>
+            <span class="tag">Trabajo en equipo</span>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="journey-heading">
+          <p class="section-label" id="journey-heading">Formación y experiencia</p>
+          <div class="experience-list">
+            <article class="experience-item">
+              <span class="item-icon" aria-hidden="true">↗</span>
+              <div>
+                <h2 class="item-title">Procurement Intern</h2>
+                <p class="item-subtitle">Siemens · 1 año de prácticas</p>
+                <p class="item-description">Experiencia profesional en el área de compras.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <span class="item-icon" aria-hidden="true">◇</span>
+              <div>
+                <h2 class="item-title">Graduado en Finanzas</h2>
+                <p class="item-subtitle">Universidad de Alcalá</p>
+                <p class="item-description">Formación universitaria en finanzas.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <span class="item-icon" aria-hidden="true">◎</span>
+              <div>
+                <h2 class="item-title">Futbolista</h2>
+                <p class="item-subtitle">Tercera RFEF</p>
+                <p class="item-description">Competición y trabajo en equipo al más alto nivel de compromiso.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <span>Perfil profesional</span>
+      <span>Finanzas · Compras · Fútbol</span>
+    </footer>
+  </div>
+</body>
+</html>
